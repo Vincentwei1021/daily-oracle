@@ -1,0 +1,10 @@
+export const faqData = [
+  { q: "How does Daily Oracle work?", a: "Daily Oracle uses a date-based algorithm to assign you a unique fortune each day. When you draw your fortune, the result is determined by today's date — so everyone gets the same fortune for a given day, and your fortune refreshes at midnight." },
+  { q: "Is the fortune the same all day?", a: "Yes! Once you draw your fortune, it stays the same until midnight. This simulates the traditional fortune-drawing experience where you get one fortune per day. Come back tomorrow for a fresh reading!" },
+  { q: "What do the fortune levels mean?", a: "Daily Oracle uses five levels: Great Fortune (大吉) — an exceptional day ahead; Good Fortune (中吉) — positive energy and favorable outcomes; Fair Fortune (小吉) — a gentle, balanced day; Modest Fortune (末吉) — minor challenges with hidden lessons; Challenging Day (凶) — a day to exercise caution and self-care." },
+  { q: "Is this real fortune telling?", a: "Daily Oracle is designed for entertainment and positive reflection. It's inspired by the Japanese omikuji (おみくじ) tradition and Chinese temple fortune sticks. The readings are meant to encourage mindfulness and positive thinking, not predict the future." },
+  { q: "Can I share my fortune?", a: "Yes! After drawing your fortune, click the Share button to share via your device's native sharing feature, or copy the text to your clipboard. It's a fun way to compare fortunes with friends." },
+  { q: "Is the site available in Chinese?", a: "Yes! Click the language toggle button (🇨🇳 中文 / 🇺🇸 English) to switch between English and Chinese. All fortune readings are available in both languages." },
+  { q: "Do I need to create an account?", a: "No. Daily Oracle is completely free with no sign-up required. Your language preference is saved locally in your browser." },
+  { q: "Is my data private?", a: "Absolutely. Daily Oracle runs 100% in your browser. No personal data is collected, stored, or transmitted. Your fortune is generated locally using the current date — no server calls needed." },
+];
