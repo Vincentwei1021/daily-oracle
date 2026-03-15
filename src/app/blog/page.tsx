@@ -3,7 +3,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-export const metadata: Metadata = { title: "Blog — Fortune & Luck Guides | Daily Oracle", description: "Articles on fortune telling traditions, luck rituals, and daily mindfulness practices." };
+export const metadata: Metadata = { title: "Blog — Fortune & Luck Guides | Daily Oracle", description: "Articles on fortune telling traditions, luck rituals, and daily mindfulness practices.", alternates: { canonical: "/blog" } };
 
 const posts = [
   { slug: "history-of-fortune-telling", title: "The Fascinating History of Fortune Drawing: From Ancient Temples to Your Screen", excerpt: "Explore the rich history of fortune drawing traditions from Japanese omikuji to Chinese kau cim, and how they've evolved into modern digital experiences.", date: "2026-03-12" },

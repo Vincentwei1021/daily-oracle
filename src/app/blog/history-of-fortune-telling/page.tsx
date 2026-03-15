@@ -6,12 +6,25 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "The Fascinating History of Fortune Drawing: From Ancient Temples to Your Screen",
   description: "Explore the rich history of fortune drawing traditions from Japanese omikuji to Chinese kau cim, and how they've evolved into modern digital experiences.",
+  keywords: ["history of fortune telling", "omikuji history", "kau cim", "fortune drawing tradition", "daily fortune", "fortune telling origins"],
   alternates: { canonical: "/blog/history-of-fortune-telling" },
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "The Fascinating History of Fortune Drawing: From Ancient Temples to Your Screen",
+  description: "Explore the rich history of fortune drawing traditions from Japanese omikuji to Chinese kau cim, and how they've evolved into modern digital experiences.",
+  datePublished: "2026-03-12",
+  dateModified: "2026-03-12",
+  author: { "@type": "Organization", name: "Daily Oracle" },
+  publisher: { "@type": "Organization", name: "Daily Oracle" },
 };
 
 export default function HistoryOfFortuneTelling() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <Header />
       <main className="px-4 py-12 sm:px-6 sm:py-16">
         <article className="mx-auto max-w-3xl">

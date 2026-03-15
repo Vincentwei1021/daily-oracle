@@ -6,12 +6,25 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "7 Daily Rituals That Attract Good Luck (Backed by Psychology)",
   description: "Science-backed daily habits that improve your mindset, increase serendipity, and make you feel luckier. Practical tips from positive psychology research.",
+  keywords: ["daily rituals for good luck", "attract good luck", "luck psychology", "good luck habits", "daily fortune ritual", "positive psychology luck"],
   alternates: { canonical: "/blog/daily-rituals-for-good-luck" },
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "7 Daily Rituals That Attract Good Luck (Backed by Psychology)",
+  description: "Science-backed daily habits that improve your mindset, increase serendipity, and make you feel luckier. Practical tips from positive psychology research.",
+  datePublished: "2026-03-10",
+  dateModified: "2026-03-10",
+  author: { "@type": "Organization", name: "Daily Oracle" },
+  publisher: { "@type": "Organization", name: "Daily Oracle" },
 };
 
 export default function DailyRituals() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <Header />
       <main className="px-4 py-12 sm:px-6 sm:py-16">
         <article className="mx-auto max-w-3xl">
