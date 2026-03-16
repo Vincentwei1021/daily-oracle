@@ -45,12 +45,12 @@ export default function FortuneDrawer() {
   const level = fortune ? LEVEL_LABELS[fortune.level] : null;
 
   const shareText = fortune && t
-    ? `${level?.emoji} ${lang === "en" ? level?.en : level?.zh} — ${t.overall}\n\n✨ Draw your fortune: fortune.toolboxlite.com`
+    ? `${level?.emoji} ${lang === "en" ? level?.en : level?.zh} — ${t.overall}\n\n✨ Draw your fortune: daily-oracle.vercel.app`
     : "";
 
   const handleShare = async () => {
     if (navigator.share) {
-      try { await navigator.share({ title: "Daily Oracle", text: shareText, url: "https://fortune.toolboxlite.com" }); } catch {}
+      try { await navigator.share({ title: "Daily Oracle", text: shareText, url: "https://daily-oracle.vercel.app" }); } catch {}
     } else {
       try { await navigator.clipboard.writeText(shareText); } catch {}
     }
@@ -63,7 +63,7 @@ export default function FortuneDrawer() {
       <div className="mx-auto max-w-lg">
         {/* Language toggle */}
         <div className="mb-6 flex justify-center">
-          <button onClick={toggleLang} className="rounded-full border border-amber-300 bg-white px-4 py-1.5 text-sm font-medium text-amber-700 transition-colors hover:bg-amber-50">
+          <button onClick={toggleLang} className="rounded-full border border-amber-300 bg-white px-5 py-2.5 text-sm font-medium text-amber-700 transition-colors hover:bg-amber-50">
             {lang === "en" ? "🇨🇳 中文" : "🇺🇸 English"}
           </button>
         </div>

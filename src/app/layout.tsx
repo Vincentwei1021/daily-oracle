@@ -6,7 +6,7 @@ import "./globals.css";
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-heading", weight: ["400","500","600","700","800"] });
 const inter = Inter({ subsets: ["latin"], variable: "--font-body" });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://fortune.toolboxlite.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://daily-oracle.vercel.app";
 
 export const metadata: Metadata = {
   title: "Daily Oracle — Your Daily Fortune & Horoscope | Free Fortune Drawing",
