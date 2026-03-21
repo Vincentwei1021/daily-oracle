@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Card, CardContent } from "@/components/ui/card";
 
 export const metadata: Metadata = { title: "Blog — Fortune & Luck Guides | Daily Oracle", description: "Articles on fortune telling traditions, luck rituals, and daily mindfulness practices.", alternates: { canonical: "/blog" } };
 
@@ -16,16 +17,18 @@ export default function BlogPage() {
       <Header />
       <main className="px-4 py-12 sm:px-6 sm:py-16">
         <div className="mx-auto max-w-3xl">
-          <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Blog</h1>
-          <p className="mt-2 text-gray-600">Articles on fortune telling traditions, luck, and daily mindfulness.</p>
-          <div className="mt-10 space-y-8">
+          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl font-[family-name:var(--font-heading)]">Blog</h1>
+          <p className="mt-2 text-muted-foreground">Articles on fortune telling traditions, luck, and daily mindfulness.</p>
+          <div className="mt-10 space-y-6">
             {posts.map((post) => (
-              <article key={post.slug} className="rounded-xl border border-amber-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
-                <time className="text-xs font-medium text-gray-400">{post.date}</time>
-                <h2 className="mt-2 text-xl font-bold text-gray-900"><Link href={`/blog/${post.slug}`} className="hover:text-amber-600">{post.title}</Link></h2>
-                <p className="mt-2 text-sm leading-relaxed text-gray-600">{post.excerpt}</p>
-                <Link href={`/blog/${post.slug}`} className="mt-3 inline-block text-sm font-semibold text-amber-600 hover:text-amber-700">Read more →</Link>
-              </article>
+              <Card key={post.slug} className="card-hover p-6">
+                <CardContent className="p-0">
+                  <time className="text-xs font-medium text-muted-foreground">{post.date}</time>
+                  <h2 className="mt-2 text-xl font-bold"><Link href={`/blog/${post.slug}`} className="hover:text-brand transition-colors">{post.title}</Link></h2>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{post.excerpt}</p>
+                  <Link href={`/blog/${post.slug}`} className="mt-3 inline-block text-sm font-semibold text-brand hover:text-brand/80 transition-colors">Read more →</Link>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
