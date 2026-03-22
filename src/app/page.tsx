@@ -39,8 +39,8 @@ export default function Home() {
         {/* Hero */}
         <section className="px-4 pt-12 pb-2 sm:px-6 sm:pt-16">
           <div className="mx-auto max-w-3xl text-center">
-            <Badge variant="secondary" className="mb-4 animate-fade-in stagger-1 bg-brand-muted text-brand border-brand/20 px-4 py-1.5 text-sm font-medium">
-              🔮 Inspired by Japanese Omikuji & Chinese Fortune Sticks
+            <Badge variant="secondary" className="mb-4 animate-fade-in stagger-1 bg-brand-muted text-brand border-brand/20 px-4 py-1.5 text-sm font-medium max-w-full whitespace-normal text-center">
+              🔮 Inspired by Japanese Omikuji &amp; Chinese Fortune Sticks
             </Badge>
             <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl font-[family-name:var(--font-heading)] animate-fade-in-up stagger-2">
               Draw Your<br />

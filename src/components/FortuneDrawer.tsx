@@ -69,7 +69,7 @@ export default function FortuneDrawer() {
       <div className="mx-auto max-w-lg">
         {/* Language toggle */}
         <div className="mb-6 flex justify-center">
-          <Button variant="outline" onClick={toggleLang} className="rounded-full px-5 py-2.5 text-sm font-medium">
+          <Button variant="outline" onClick={toggleLang} className="rounded-full px-5 min-h-[44px] text-sm font-medium">
             {lang === "en" ? "🇨🇳 中文" : "🇺🇸 English"}
           </Button>
         </div>
