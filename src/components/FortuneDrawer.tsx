@@ -48,12 +48,12 @@ export default function FortuneDrawer() {
   const level = fortune ? LEVEL_LABELS[fortune.level] : null;
 
   const shareText = fortune && t
-    ? `${level?.emoji} ${lang === "en" ? level?.en : level?.zh} — ${t.overall}\n\n🔮 Draw your fortune: daily-oracle.vercel.app`
+    ? `${level?.emoji} ${lang === "en" ? level?.en : level?.zh} — ${t.overall}\n\n🔮 Draw your fortune: fortune.toolboxlite.com`
     : "";
 
   const handleShare = async () => {
     if (navigator.share) {
-      try { await navigator.share({ title: "Daily Oracle", text: shareText, url: "https://daily-oracle.vercel.app" }); } catch {}
+      try { await navigator.share({ title: "Daily Oracle", text: shareText, url: "https://fortune.toolboxlite.com" }); } catch {}
     } else {
       try {
         await navigator.clipboard.writeText(shareText);

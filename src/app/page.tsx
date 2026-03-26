@@ -9,7 +9,7 @@ import { faqData } from "@/data/faq";
 
 const webAppSchema = {
   "@context": "https://schema.org", "@type": "WebApplication",
-  name: "Daily Oracle", url: "https://daily-oracle.vercel.app",
+  name: "Daily Oracle", url: "https://fortune.toolboxlite.com",
   description: "Free daily fortune drawing tool. Get personalized daily readings for career, love, wealth, and health with beautiful animations. Inspired by traditional omikuji.",
   applicationCategory: "EntertainmentApplication", operatingSystem: "Any",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
@@ -23,7 +23,7 @@ const howToSchema = {
   name: "How to Draw Your Daily Fortune",
   description: "Draw a personalized daily fortune reading using Daily Oracle.",
   step: [
-    { "@type": "HowToStep", name: "Visit Daily Oracle", text: "Open daily-oracle.vercel.app in your browser." },
+    { "@type": "HowToStep", name: "Visit Daily Oracle", text: "Open fortune.toolboxlite.com in your browser." },
     { "@type": "HowToStep", name: "Tap the fortune card", text: "Click or tap the glowing fortune card to begin the drawing ritual." },
     { "@type": "HowToStep", name: "Read your fortune", text: "Your personalized daily reading appears with career, love, wealth, and health insights. Share with friends!" },
   ],
