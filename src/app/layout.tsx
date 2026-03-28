@@ -3,11 +3,11 @@ import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
 import Script from "next/script";
 import { ThemeProvider } from "next-themes";
-import { Plus_Jakarta_Sans, Inter } from "next/font/google";
+import { Young_Serif, Outfit } from "next/font/google";
 import "./globals.css";
 
-const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-heading", weight: ["400","500","600","700","800"] });
-const inter = Inter({ subsets: ["latin"], variable: "--font-body" });
+const youngSerif = Young_Serif({ subsets: ["latin"], variable: "--font-heading", weight: "400" });
+const outfit = Outfit({ subsets: ["latin"], variable: "--font-body", weight: ["300","400","500","600","700"] });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://fortune.toolboxlite.com";
 
@@ -48,7 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5881105388002876" crossOrigin="anonymous" strategy="afterInteractive" />
       </head>
-      <body className={`${jakarta.variable} ${inter.variable} font-sans antialiased`}>
+      <body className={`${youngSerif.variable} ${outfit.variable} font-sans antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}
           <FeedbackWidget />

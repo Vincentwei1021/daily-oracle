@@ -65,40 +65,66 @@ export default function FortuneDrawer() {
   if (!mounted) return <section id="draw" className="px-4 py-16 sm:px-6"><div className="mx-auto max-w-lg h-80" /></section>;
 
   return (
-    <section id="draw" className="px-4 py-8 sm:px-6 sm:py-16">
+    <section id="draw" className="px-4 py-8 sm:px-6 sm:py-12">
       <div className="mx-auto max-w-lg">
         {/* Language toggle */}
-        <div className="mb-6 flex justify-center">
-          <Button variant="outline" onClick={toggleLang} className="rounded-full px-5 min-h-[44px] text-sm font-medium">
-            {lang === "en" ? "🇨🇳 中文" : "🇺🇸 English"}
-          </Button>
+        <div className="mb-8 flex justify-center">
+          <button
+            onClick={toggleLang}
+            className="flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-medium text-muted-foreground transition-all hover:border-brand/40 hover:text-foreground min-h-[44px]"
+          >
+            <span className="text-xs tracking-widest uppercase">
+              {lang === "en" ? "中文" : "English"}
+            </span>
+          </button>
         </div>
 
-        {/* IDLE: Draw card */}
+        {/* IDLE: Tarot draw card */}
         {phase === "idle" && (
           <div className="flex flex-col items-center animate-fade-in">
-            <div className="animate-float mb-8">
+            <div className="animate-float mb-10">
               <button
                 onClick={draw}
-                className="relative w-48 h-64 rounded-2xl bg-gradient-to-b from-brand to-amber-800 dark:from-brand dark:to-amber-900 shadow-2xl flex items-center justify-center cursor-pointer animate-glow transition-transform hover:scale-[1.02]"
+                className="group relative w-52 h-72 rounded-lg fortune-card-bg shadow-2xl flex items-center justify-center cursor-pointer animate-glow transition-transform duration-300 hover:scale-[1.03] active:scale-[0.98]"
               >
-                <div className="absolute inset-2 rounded-xl border-2 border-amber-400/40" />
-                <div className="text-center">
-                  <div className="text-5xl mb-3">🔮</div>
-                  <p className="text-amber-100 font-bold text-lg">
-                    {lang === "en" ? "Draw" : "抽签"}
-                  </p>
+                {/* Ornate inner border */}
+                <div className="absolute inset-[8px] rounded-md border border-amber-300/30" />
+                <div className="absolute inset-[12px] rounded border border-amber-300/15" />
+
+                {/* Corner ornaments */}
+                <div className="absolute top-4 left-4 w-3 h-3 border-t border-l border-amber-300/40" />
+                <div className="absolute top-4 right-4 w-3 h-3 border-t border-r border-amber-300/40" />
+                <div className="absolute bottom-4 left-4 w-3 h-3 border-b border-l border-amber-300/40" />
+                <div className="absolute bottom-4 right-4 w-3 h-3 border-b border-r border-amber-300/40" />
+
+                {/* Central content */}
+                <div className="text-center relative z-10">
+                  <div className="text-amber-100/80 text-xs tracking-[0.3em] uppercase mb-3 font-medium">
+                    {lang === "en" ? "Reveal" : "揭示"}
+                  </div>
+                  <div className="w-12 h-px bg-amber-300/30 mx-auto mb-4" />
+                  <div className="font-[family-name:var(--font-heading)] text-amber-50 text-2xl mb-4">
+                    {lang === "en" ? "Your" : "你的"}
+                    <br />
+                    {lang === "en" ? "Fortune" : "运势"}
+                  </div>
+                  <div className="w-12 h-px bg-amber-300/30 mx-auto mb-3" />
+                  <div className="text-amber-200/60 text-xs tracking-[0.2em] uppercase">
+                    {lang === "en" ? "Tap to draw" : "点击抽签"}
+                  </div>
                 </div>
-                <div className="absolute -top-2 -right-2 text-2xl animate-sparkle">✨</div>
-                <div className="absolute -bottom-1 -left-2 text-xl animate-sparkle" style={{ animationDelay: "0.5s" }}>⭐</div>
-                <div className="absolute top-4 -left-3 text-lg animate-sparkle" style={{ animationDelay: "1s" }}>💫</div>
+
+                {/* Subtle sparkle accents */}
+                <div className="absolute top-6 right-6 text-amber-200/40 text-sm animate-sparkle">✦</div>
+                <div className="absolute bottom-6 left-6 text-amber-200/40 text-sm animate-sparkle" style={{ animationDelay: "0.7s" }}>✦</div>
+                <div className="absolute top-1/3 left-5 text-amber-200/30 text-xs animate-sparkle" style={{ animationDelay: "1.4s" }}>✧</div>
               </button>
             </div>
-            <p className="text-muted-foreground text-center">
+            <p className="text-muted-foreground text-center text-sm">
               {lang === "en" ? "Tap the card to reveal today's fortune" : "点击卡牌揭示今日运势"}
             </p>
-            <p className="text-xs text-muted-foreground/60 mt-2">
-              {lang === "en" ? "Your fortune refreshes daily" : "运势每日刷新"}
+            <p className="text-xs text-muted-foreground/50 mt-2">
+              {lang === "en" ? "Your fortune refreshes daily at midnight" : "运势每日午夜刷新"}
             </p>
           </div>
         )}
@@ -106,13 +132,17 @@ export default function FortuneDrawer() {
         {/* DRAWING: Animation */}
         {phase === "drawing" && (
           <div className="flex flex-col items-center">
-            <div className="w-48 h-64 rounded-2xl bg-gradient-to-b from-brand to-amber-800 dark:from-brand dark:to-amber-900 shadow-2xl flex items-center justify-center animate-flip">
-              <div className="animate-shimmer w-full h-full rounded-2xl flex items-center justify-center">
-                <div className="text-5xl">🔮</div>
+            <div className="w-52 h-72 rounded-lg fortune-card-bg shadow-2xl flex items-center justify-center animate-flip">
+              <div className="animate-shimmer w-full h-full rounded-lg flex items-center justify-center">
+                <div className="text-center">
+                  <div className="font-[family-name:var(--font-heading)] text-amber-50/80 text-xl">
+                    ✦ ✦ ✦
+                  </div>
+                </div>
               </div>
             </div>
-            <p className="mt-6 text-brand font-semibold animate-pulse">
-              {lang === "en" ? "The oracle is speaking..." : "神谕正在降临..."}
+            <p className="mt-8 text-brand font-medium animate-pulse text-sm tracking-wide">
+              {lang === "en" ? "The oracle speaks..." : "神谕降临..."}
             </p>
           </div>
         )}
@@ -120,24 +150,26 @@ export default function FortuneDrawer() {
         {/* REVEAL: Fortune card */}
         {phase === "reveal" && fortune && t && level && (
           <div className="animate-scale-in" ref={cardRef}>
-            <Card className="rounded-2xl overflow-hidden p-0 gap-0">
-              {/* Header gradient */}
-              <div className="bg-gradient-to-r from-brand via-brand/80 to-brand px-6 py-5 text-center">
-                <p className="text-primary-foreground/70 text-xs tracking-widest uppercase mb-1">
+            <Card className="rounded-lg overflow-hidden p-0 gap-0 border-brand/20 shadow-lg">
+              {/* Header — fortune level */}
+              <div className="fortune-card-bg px-6 py-6 text-center relative">
+                {/* Inner decoration */}
+                <div className="absolute inset-x-4 top-3 bottom-3 border border-amber-300/20 rounded" />
+                <p className="text-amber-100/60 text-[11px] tracking-[0.25em] uppercase mb-2 relative z-10">
                   {lang === "en" ? "Today's Fortune" : "今日运势"} — {getTodayDateStr()}
                 </p>
-                <div className="flex items-center justify-center gap-3">
-                  <span className="text-3xl">{level.emoji}</span>
-                  <h2 className="text-2xl font-bold text-primary-foreground font-[family-name:var(--font-heading)]">
+                <div className="flex items-center justify-center gap-3 relative z-10">
+                  <span className="text-amber-200/50 text-sm">✦</span>
+                  <h2 className="text-2xl font-[family-name:var(--font-heading)] text-amber-50 tracking-wide">
                     {lang === "en" ? level.en : level.zh}
                   </h2>
-                  <span className="text-3xl">{level.emoji}</span>
+                  <span className="text-amber-200/50 text-sm">✦</span>
                 </div>
               </div>
 
               {/* Overall quote */}
               <div className="px-6 py-5 border-b border-border">
-                <p className="text-center text-lg font-medium leading-relaxed italic text-card-foreground">
+                <p className="text-center text-base leading-relaxed italic text-card-foreground font-[family-name:var(--font-heading)]">
                   &ldquo;{t.overall}&rdquo;
                 </p>
               </div>
@@ -156,8 +188,8 @@ export default function FortuneDrawer() {
                     style={{ animationDelay: `${i * 100}ms`, opacity: 0 }}
                   >
                     <div className="flex items-center gap-2 mb-1.5">
-                      <span className="text-lg">{cat.icon}</span>
-                      <span className="text-xs font-bold text-brand uppercase tracking-wider">{cat.label}</span>
+                      <span className="text-base">{cat.icon}</span>
+                      <span className="text-[11px] font-semibold text-brand uppercase tracking-wider">{cat.label}</span>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">{cat.text}</p>
                   </div>
@@ -165,9 +197,9 @@ export default function FortuneDrawer() {
               </div>
 
               {/* Lucky section */}
-              <div className="px-6 py-4 bg-brand-muted text-center">
-                <span className="text-xs font-semibold text-brand">
-                  🍀 {lang === "en" ? "Lucky" : "幸运"}:
+              <div className="px-6 py-3.5 bg-brand/5 text-center border-t border-border">
+                <span className="text-[11px] font-semibold text-brand tracking-wider uppercase">
+                  {lang === "en" ? "Lucky" : "幸运"}:
                 </span>
                 <span className="text-sm text-card-foreground ml-2">{t.lucky}</span>
               </div>
@@ -175,21 +207,21 @@ export default function FortuneDrawer() {
 
             {/* Action buttons */}
             <div className="mt-6 flex justify-center gap-3">
-              <Button onClick={handleShare} className="rounded-full bg-brand text-primary-foreground hover:bg-brand/90 px-6">
+              <Button onClick={handleShare} className="rounded-full bg-brand text-primary-foreground hover:bg-brand-hover px-6 min-h-[44px]">
                 <Share2 className="mr-2 h-4 w-4" />
                 {lang === "en" ? "Share" : "分享"}
               </Button>
               <Button
                 variant="outline"
-                className="rounded-full px-6"
+                className="rounded-full px-6 min-h-[44px]"
                 onClick={() => { setPhase("idle"); setFortune(null); localStorage.removeItem("oracle_date"); }}
               >
                 <RotateCcw className="mr-2 h-4 w-4" />
                 {lang === "en" ? "Draw Again" : "重新抽签"}
               </Button>
             </div>
-            <p className="mt-3 text-center text-xs text-muted-foreground">
-              {lang === "en" ? "Same fortune all day — refreshes at midnight" : "同一签文全天有效——午夜刷新"}
+            <p className="mt-3 text-center text-xs text-muted-foreground/60">
+              {lang === "en" ? "Same fortune all day — refreshes at midnight" : "同一签文全天有效 — 午夜刷新"}
             </p>
           </div>
         )}
