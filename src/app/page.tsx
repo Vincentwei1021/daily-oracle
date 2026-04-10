@@ -1,3 +1,4 @@
+import AdBanner from "@/components/AdBanner";
 import Header from "@/components/Header";
 import FortuneDrawer from "@/components/FortuneDrawer";
 import FAQ from "@/components/FAQ";
@@ -57,6 +58,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+        <AdBanner className="mx-auto max-w-5xl px-4 py-4" />
 
         <FortuneDrawer />
 
@@ -149,6 +151,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+        <AdBanner className="mx-auto max-w-5xl px-4 py-6" />
       </main>
       <Footer />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }} />
